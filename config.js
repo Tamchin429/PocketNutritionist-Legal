@@ -9,7 +9,7 @@ const APP_SUPPORT_INFO = {
   operatorName: null,
   supportEmail: "vanish.info@gmail.com",
   privacyEmail: "vanish.info@gmail.com",
-  websiteURL: null,
+  websiteURL: "https://tamchin429.github.io/PocketNutritionist-Legal/",
 };
 
 /**
