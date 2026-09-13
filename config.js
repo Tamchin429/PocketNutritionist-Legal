@@ -7,8 +7,8 @@
 // 値が確定した時点で、このファイルだけを書き換えれば全ページへ反映される。
 const APP_SUPPORT_INFO = {
   operatorName: null,
-  supportEmail: null,
-  privacyEmail: null,
+  supportEmail: "vanish.info@gmail.com",
+  privacyEmail: "vanish.info@gmail.com",
   websiteURL: null,
 };
 
@@ -41,18 +41,31 @@ function renderContactInto(elementId, kind, fallbackText) {
       : APP_SUPPORT_INFO.supportEmail;
 
   const parts = [];
+
   if (APP_SUPPORT_INFO.operatorName) {
-    parts.push(`<p>運営者：${escapeHtml(APP_SUPPORT_INFO.operatorName)}</p>`);
+    parts.push(
+      `<p>運営者：${escapeHtml(APP_SUPPORT_INFO.operatorName)}</p>`
+    );
   }
+
   if (email) {
-    const subject = encodeURIComponent("PocketNutritionist お問い合わせ");
+    const subject = encodeURIComponent(
+      "PocketNutritionist お問い合わせ"
+    );
+
     parts.push(
       `<p><a href="mailto:${escapeHtml(email)}?subject=${subject}">${escapeHtml(email)}</a></p>`
     );
   }
+
   if (APP_SUPPORT_INFO.websiteURL) {
-    parts.push(`<p><a href="${escapeHtml(APP_SUPPORT_INFO.websiteURL)}">公式サイト</a></p>`);
+    parts.push(
+      `<p><a href="${escapeHtml(APP_SUPPORT_INFO.websiteURL)}">公式サイト</a></p>`
+    );
   }
 
-  el.innerHTML = parts.length > 0 ? parts.join("\n") : `<p>${escapeHtml(fallbackText)}</p>`;
+  el.innerHTML =
+    parts.length > 0
+      ? parts.join("\n")
+      : `<p>${escapeHtml(fallbackText)}</p>`;
 }
